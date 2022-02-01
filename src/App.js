@@ -1,5 +1,5 @@
-import React from "react";
-
+import * as React from "react";
+import AppBar from "./views/@Appbar";
 // make a them dark
 
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -16,6 +16,8 @@ import { Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
 // use views
 import Homepage from "./views/Homepage";
 import Movies from "./views/Movies";
+import Actresses from "views/Actresses";
+import Genres from "views/Genres";
 
 export default function App() {
   const store = configureStore();
@@ -36,9 +38,15 @@ export default function App() {
 
       <StoreProvider store={store}>
         <BrowserRouter>
+          <AppBar></AppBar>
           <Routes>
             <Route path="/" element={<Homepage />}></Route>
             <Route path="/movies" element={<Movies />}></Route>
+            <Route path="/movie/:ID" element={<Movies />}></Route>
+            <Route path="/actresses" element={<Actresses />}></Route>
+            <Route path="/actress/:ID" element={<Actresses />}></Route>
+            <Route path="/genres" element={<Genres />}></Route>
+            <Route path="/genre/:ID" element={<Genres />}></Route>
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </BrowserRouter>
