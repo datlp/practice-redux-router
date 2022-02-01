@@ -1,21 +1,8 @@
-import { authenticationApis } from "../services/user";
-
 export const SESSION_LOGIN = "SESSION_LOGIN";
 export const SESSION_LOGOUT = "SESSION_LOGOUT";
 export const KEYWORDS_FILTER = "KEYWORDS_FILTER";
 export const UPDATE_RESPONSIVE = "UPDATE_RESPONSIVE";
 export const SEARCH = "SEARCH";
-
-export const login = () => async (dispatch) => {
-  const jwt = localStorage.getItem("jwt");
-
-  return dispatch({
-    type: SESSION_LOGIN,
-    payload: jwt
-      ? await authenticationApis.me()
-      : await authenticationApis.login(),
-  });
-};
 
 export const logout = () => (dispatch) =>
   dispatch({

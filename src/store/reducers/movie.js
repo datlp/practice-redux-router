@@ -11,7 +11,7 @@ const initialState = {
 
 const sessionReducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.SESSION_LOGIN: {
+    case actionTypes.SEARCH: {
       return {
         ...state,
         ...action.payload,
